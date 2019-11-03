@@ -21,16 +21,13 @@
  * @return {number}
  */
 function uniquePaths(m, n) {
-  /** @type {number[]} */
-  let lastLine = [];
-  for (let i = 0; i < m; i += 1) {
-    lastLine.push(1);
-  }
+  /** @type {number[] | null} */
+  let lastLine = null;
 
   for (let y = 1; y < n; y += 1) {
     const line = [1];
     for (let x = 1; x < m; x += 1) {
-      const above = lastLine[x];
+      const above = lastLine ? lastLine[x] : 1;
       const left = line[x - 1];
       const count = above + left;
       line.push(count);
@@ -39,7 +36,7 @@ function uniquePaths(m, n) {
     lastLine = line;
   }
 
-  return lastLine[m - 1];
+  return lastLine ? lastLine[m - 1] : 1;
 }
 
 module.exports.uniquePaths = uniquePaths;
