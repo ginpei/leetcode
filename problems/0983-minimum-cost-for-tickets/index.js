@@ -49,6 +49,9 @@ function mincostTickets(days, costs) {
     return memo[i];
   }
 
+  /**
+   * @param {number} i
+   */
   function findMin(i) {
     let min = Number.MAX_SAFE_INTEGER;
     let j = i;
