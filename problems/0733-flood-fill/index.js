@@ -1,3 +1,5 @@
+const grid = require('../lib/grid');
+
 /**
  * 733. Flood Fill
  *
@@ -27,38 +29,7 @@
  * @return {number[][]}
  */
 function floodFill(image, sr, sc, newColor) {
-  const oldColor = image[sr][sc];
-
-  if (newColor !== oldColor) {
-    advance(image, sr, sc, newColor, oldColor);
-  }
-
-  return image;
-}
-
-/**
- * @param {number[][]} image Gets destructed internally
- * @param {number} sr
- * @param {number} sc
- * @param {number} newColor
- * @param {number} oldColor
- */
-function advance(image, sr, sc, newColor, oldColor) {
-  if (sr < 0 || image.length <= sr || sc < 0 || image[0].length <= sc) {
-    return;
-  }
-
-  if (image[sr][sc] !== oldColor) {
-    return;
-  }
-
-  // eslint-disable-next-line no-param-reassign
-  image[sr][sc] = newColor;
-
-  advance(image, sr - 1, sc, newColor, oldColor);
-  advance(image, sr + 1, sc, newColor, oldColor);
-  advance(image, sr, sc - 1, newColor, oldColor);
-  advance(image, sr, sc + 1, newColor, oldColor);
+  return grid.floodFill(image, sr, sc, newColor);
 }
 
 module.exports.floodFill = floodFill;

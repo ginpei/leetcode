@@ -1,3 +1,5 @@
+const { fillGridCells } = require('../lib/grid');
+
 /**
  * 200. Number of Islands
  *
@@ -31,36 +33,13 @@ function numIslands(grid) {
     for (let x = 0; x < line.length; x++) {
       const cell = line[x];
       if (cell === MapType.land) {
-        burn(grid, y, x);
+        fillGridCells(grid, y, x, MapType.boomed, MapType.land);
         count += 1;
       }
     }
   }
 
   return count;
-}
-
-/**
- * @param {GridCell[][]} grid Gets destructed internally
- * @param {number} y
- * @param {number} x
- */
-function burn(grid, y, x) {
-  if (y < 0 || grid.length <= y || x < 0 || grid[0].length <= x) {
-    return;
-  }
-
-  if (grid[y][x] !== MapType.land) {
-    return;
-  }
-
-  // eslint-disable-next-line no-param-reassign
-  grid[y][x] = MapType.boomed;
-
-  burn(grid, y - 1, x);
-  burn(grid, y + 1, x);
-  burn(grid, y, x - 1);
-  burn(grid, y, x + 1);
 }
 
 module.exports.numIslands = numIslands;
