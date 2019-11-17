@@ -7,7 +7,7 @@
  */
 
 /**
- * @param {import("../../types/types").TreeNode<number> | null} root
+ * @param {TreeNode<number> | null} root
  * @param {string} stack
  * @return {string[]}
  */

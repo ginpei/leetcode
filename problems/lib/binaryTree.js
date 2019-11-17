@@ -3,7 +3,7 @@
 /**
  * @template T
  * @param {(T | null)[]} input Gets destructed internally.
- * @returns {import("../../types/types").TreeNode<T> | null} Root node
+ * @returns {TreeNode<T> | null} Root node
  */
 function buildBinaryTree(input) {
   const root = createBinaryNode(input.shift());
@@ -37,7 +37,7 @@ module.exports.buildBinaryTree = buildBinaryTree;
 /**
  * @template T
  * @param {T | undefined | null} val
- * @returns {import("../../types/types").TreeNode<T> | null} Root node
+ * @returns {TreeNode<T> | null} Root node
  */
 function createBinaryNode(val) {
   if (val === undefined || val === null) {

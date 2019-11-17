@@ -7,7 +7,7 @@ describe('lib/binaryTree', () => {
     describe('for basic binary tree', () => {
       const input = [1, 2, 3];
 
-      /** @type {import('../../types/types').TreeNode<number> | null} */
+      /** @type {TreeNode<number> | null} */
       let root;
 
       beforeEach(() => {
@@ -35,7 +35,7 @@ describe('lib/binaryTree', () => {
     describe('for leaf nodes', () => {
       const input = [1, 2, 3, null, null, 6, 7, 8];
 
-      /** @type {import('../../types/types').TreeNode<number> | null} */
+      /** @type {TreeNode<number> | null} */
       let root;
 
       beforeEach(() => {
