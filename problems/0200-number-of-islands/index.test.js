@@ -1,7 +1,7 @@
 const { numIslands } = require('./');
 
-/** @typedef {import("./type").GridCell} GridCell */
-/** @typedef {import("./type").MapTypeDef} MapTypeDef */
+/** @typedef {import(".").GridCell} GridCell */
+/** @typedef {import(".").MapTypeDef} MapTypeDef */
 
 describe('200. Number of Islands', () => {
   /**

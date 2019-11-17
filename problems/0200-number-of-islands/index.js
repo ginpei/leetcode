@@ -11,10 +11,16 @@ const { fillGridCells } = require('../lib/grid');
  * @see https://leetcode.com/problems/number-of-islands/
  */
 
-/** @typedef {import("./type").GridCell} GridCell */
-/** @typedef {import("./type").MapTypeDef} MapTypeDef */
+/** @typedef {{
+ *   water: '0';
+ *   land: '1';
+ *   boomed: 'x';
+ * }} MapTypeDef
+ */
 
-/** @type {MapTypeDef} */
+/** @typedef {ValueOf<MapTypeDef>} GridCell */
+
+// /** @type {MapTypeDef} */
 const MapType = {
   water: '0',
   land: '1',
