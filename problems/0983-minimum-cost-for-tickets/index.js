@@ -61,7 +61,7 @@ function mincostTickets(days, costs) {
 
       // find the last date index of this duration
       while (j < days.length && days[j] < days[i] + duration) {
-        j++;
+        j += 1;
       }
 
       const curCost = dp(j) + cost;

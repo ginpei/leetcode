@@ -11,7 +11,7 @@ module.exports = {
     "arrow-parens": ["error", "always"],
     "class-methods-use-this": "off",
     "import/prefer-default-export": "off",
-    "no-plusplus": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-use-before-define": "off",
   },
 };

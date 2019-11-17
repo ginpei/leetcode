@@ -29,7 +29,7 @@ function isSubsequence(s, t) {
   let pos = 0;
   for (let i = 0; i < t.length; i++) {
     if (t.charCodeAt(i) === s.charCodeAt(pos)) {
-      pos++;
+      pos += 1;
       if (pos >= s.length) {
         break;
       }
