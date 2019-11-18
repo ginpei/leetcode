@@ -8,7 +8,9 @@
  */
 function floodFill(grid, y, x, value) {
   const oldColor = grid[y][x];
-  fillGridCells(grid, y, x, value, oldColor);
+  if (oldColor !== value) {
+    fillGridCells(grid, y, x, value, oldColor);
+  }
   return grid;
 }
 module.exports.floodFill = floodFill;
@@ -23,6 +25,10 @@ module.exports.floodFill = floodFill;
  * @return {T[][]}
  */
 function fillGridCells(grid, y, x, value, target) {
+  if (value === target) {
+    throw new Error('Value must not be the target');
+  }
+
   if (y < 0 || grid.length <= y || x < 0 || grid[0].length <= x) {
     return grid;
   }
