@@ -5,36 +5,23 @@
 
 /**
  * @param {number[]} nums
+ * @param {number[][]} result
+ * @param {number[]} picked
  * @return {number[][]}
  */
-function permute(nums) {
-  if (nums.length < 1) {
-    return [];
+function permute(nums, result = [], picked = []) {
+  if (nums.length === picked.length) {
+    result.push([...picked]);
+    return result;
   }
-
-  if (nums.length === 1) {
-    return [nums];
-  }
-
-  /** @type {number[][]} */
-  const result = [];
 
   for (let i = 0; i < nums.length; i++) {
-    let n = NaN;
-    /** @type {number[]} */
-    const rest = [];
-
-    for (let j = 0; j < nums.length; j++) {
-      const m = nums[j];
-      if (j === i) {
-        n = m;
-      } else {
-        rest.push(m);
-      }
+    const n = nums[i];
+    if (!picked.includes(n)) {
+      picked.push(n);
+      permute(nums, result, picked);
+      picked.pop();
     }
-
-    const partial = permute(rest);
-    partial.forEach((list) => result.push([n, ...list]));
   }
 
   return result;
