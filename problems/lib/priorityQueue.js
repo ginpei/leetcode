@@ -24,7 +24,7 @@ const priorityQueue = {
    */
   createHeap(arr, comparator = compareMaxNumbers) {
     /** @type {any} */
-    const heap = ([null]);
+    const heap = ([undefined]);
     arr.forEach((v) => priorityQueue.push(heap, v, comparator));
     return heap;
   },

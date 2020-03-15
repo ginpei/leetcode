@@ -4,33 +4,33 @@ describe('priorityQueue', () => {
   describe('createHeap()', () => {
     it('creates heap', () => {
       const numbers = [3, 1, 4, 1, 5, 9, 2];
-      const heap = [null, 9, 4, 5, 1, 1, 3, 2];
+      const heap = createHeap([9, 4, 5, 1, 1, 3, 2]);
       expect(createHeap(numbers)).toEqual(heap);
     });
   });
 
   describe('push()', () => {
     it('pushes a minimum value to the end', () => {
-      const heap = [null, 9, 4, 5, 1, 1, 3, 2];
+      const heap = createHeap([9, 4, 5, 1, 1, 3, 2]);
       push(heap, 0);
       expect(heap).toEqual(
-        [null, 9, 4, 5, 1, 1, 3, 2, 0],
+        [undefined, 9, 4, 5, 1, 1, 3, 2, 0],
       );
     });
 
     it('pushes a maximum value to the top', () => {
-      const heap = [null, 9, 4, 5, 1, 1, 3, 2];
+      const heap = createHeap([9, 4, 5, 1, 1, 3, 2]);
       push(heap, 10);
       expect(heap).toEqual(
-        [null, 10, 9, 5, 4, 1, 3, 2, 1],
+        [undefined, 10, 9, 5, 4, 1, 3, 2, 1],
       );
     });
 
     it('pushes a value in the middle', () => {
-      const heap = [null, 9, 4, 5, 1, 1, 3, 2];
+      const heap = createHeap([9, 4, 5, 1, 1, 3, 2]);
       push(heap, 6);
       expect(heap).toEqual(
-        [null, 9, 6, 5, 4, 1, 3, 2, 1],
+        [undefined, 9, 6, 5, 4, 1, 3, 2, 1],
       );
     });
   });
@@ -44,22 +44,22 @@ describe('priorityQueue', () => {
 
     describe('with empty heap', () => {
       beforeEach(() => {
-        heap = [null];
+        heap = createHeap([]);
         popped = pop(heap);
       });
 
-      it('returns null', () => {
-        expect(popped).toBe(Number.null);
+      it('returns undefined', () => {
+        expect(popped).toBe(undefined);
       });
 
       it('leaves heap', () => {
-        expect(heap).toEqual([null]);
+        expect(heap).toEqual([undefined]);
       });
     });
 
     describe('without any children', () => {
       beforeEach(() => {
-        heap = [null, 3];
+        heap = createHeap([3]);
         popped = pop(heap);
       });
 
@@ -68,13 +68,13 @@ describe('priorityQueue', () => {
       });
 
       it('removes the top value', () => {
-        expect(heap).toEqual([null]);
+        expect(heap).toEqual([undefined]);
       });
     });
 
     describe('with both children', () => {
       beforeEach(() => {
-        heap = [null, 3, 2, 1];
+        heap = createHeap([3, 2, 1]);
         popped = pop(heap);
       });
 
@@ -83,24 +83,24 @@ describe('priorityQueue', () => {
       });
 
       it('sorts', () => {
-        expect(heap).toEqual([null, 2, 1]);
+        expect(heap).toEqual([undefined, 2, 1]);
       });
     });
 
     describe('with less left and greater right', () => {
       beforeEach(() => {
-        heap = [null, 3, 1, 2];
+        heap = createHeap([3, 1, 2]);
         popped = pop(heap);
       });
 
       it('sorts', () => {
-        expect(heap).toEqual([null, 2, 1]);
+        expect(heap).toEqual([undefined, 2, 1]);
       });
     });
 
     describe('with only left child', () => {
       beforeEach(() => {
-        heap = [null, 3, 2];
+        heap = createHeap([3, 2]);
         popped = pop(heap);
       });
 
@@ -109,19 +109,19 @@ describe('priorityQueue', () => {
       });
 
       it('sorts', () => {
-        expect(heap).toEqual([null, 2]);
+        expect(heap).toEqual([undefined, 2]);
       });
     });
 
     describe('with full of grandchildren', () => {
       beforeEach(() => {
-        heap = [null, 7, 6, 5, 4, 3, 2, 1];
+        heap = createHeap([7, 6, 5, 4, 3, 2, 1]);
         popped = pop(heap);
       });
 
       it('sorts', () => {
         expect(heap).toEqual(
-          [null, 6, 4, 5, 1, 3, 2],
+          [undefined, 6, 4, 5, 1, 3, 2],
         );
       });
     });
