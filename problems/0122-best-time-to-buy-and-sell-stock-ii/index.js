@@ -9,28 +9,16 @@
  * @return {number}
  */
 function maxProfit(prices) {
-  let profit = 0;
-  let min = prices[0];
-  let max = Number.NEGATIVE_INFINITY;
-
+  let profits = 0;
   for (let i = 1; i < prices.length; i++) {
     const cur = prices[i];
-
-    if (cur < min || cur < max) {
-      profit += Math.max(0, max - min);
-      min = cur;
-      max = Number.NEGATIVE_INFINITY;
-    } else if (cur > max) {
-      max = cur;
-    }
-
-    const last = i + 1 === prices.length;
-    if (last) {
-      profit += Math.max(0, max - min);
+    const last = prices[i - 1];
+    const diff = cur - last;
+    if (diff > 0) {
+      profits += diff;
     }
   }
-
-  return profit;
+  return profits;
 }
 
 module.exports.maxProfit = maxProfit;
