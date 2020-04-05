@@ -18,55 +18,22 @@
  * @return {number}
  */
 function maxProfit(prices) {
-  let min = prices[0];
-  let bestProfit = 0;
+  let profit = 0;
 
+  let min = prices[0];
   for (let i = 1; i < prices.length; i++) {
     const price = prices[i];
-    const profit = price - min;
     if (price < min) {
       min = price;
-    }
-
-    if (profit > bestProfit) {
-      bestProfit = profit;
+    } else {
+      const curProfit = price - min;
+      if (curProfit > profit) {
+        profit = curProfit;
+      }
     }
   }
 
-  return bestProfit;
+  return profit;
 }
-
-// /**
-//  * @param {number[]} prices
-//  * @return {number}
-//  */
-// function maxProfit(prices) {
-//   const [best] = getMinMaxPrice(prices);
-//   return best;
-// }
-//
-// /**
-//  * @param {number[]} prices
-//  * @return {number[]} `[bestProfit, min]`
-//  */
-// function getMinMaxPrice(prices) {
-//   const price = prices.pop() || 0;
-//
-//   if (prices.length < 1) {
-//     return [0, price];
-//   }
-//
-//   const [bestProfit, min] = getMinMaxPrice(prices);
-//   if (price < min) {
-//     return [bestProfit, price];
-//   }
-//
-//   const profit = price - min;
-//   if (profit > bestProfit) {
-//     return [profit, min];
-//   }
-//
-//   return [bestProfit, min];
-// }
 
 module.exports.maxProfit = maxProfit;
