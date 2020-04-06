@@ -13,6 +13,7 @@ function groupAnagrams(strs) {
 
   strs.forEach((str) => {
     const sorted = [...str].sort().join('');
+
     if (!anagrams.has(sorted)) {
       anagrams.set(sorted, []);
     }
@@ -22,7 +23,7 @@ function groupAnagrams(strs) {
     arr.push(str);
   });
 
-  return [...anagrams.values()].map((v) => [...v.values()]);
+  return [...anagrams.values()];
 }
 
 module.exports.groupAnagrams = groupAnagrams;
