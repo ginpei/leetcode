@@ -1,6 +1,7 @@
 /**
  * 525. Contiguous Array
  * @see https://leetcode.com/problems/contiguous-array/
+ * @see https://leetcode.com/problems/contiguous-array/discuss/577799/Java-Prefix-sum-and-Hash-Map-Clean-code-Easy-to-understand
  */
 
 /**
@@ -8,29 +9,23 @@
  * @return {number}
  */
 function findMaxLength(nums) {
+  /** @type {Map<number, number>} */
+  const log = new Map([[0, -1]]);
+
+  let balance = 0;
   let max = 0;
-  for (let left = 0; left < nums.length - 1; left++) {
-    const n = nums[left];
-    let c0 = n === 0 ? 1 : 0;
-    let c1 = n === 1 ? 1 : 0;
-
-    // no more possibility
-    if (nums.length - left <= max) {
-      break;
-    }
-
-    for (let right = left + 1; right < nums.length; right++) {
-      const m = nums[right];
-      if (m === 0) { c0 += 1; }
-      if (m === 1) { c1 += 1; }
-      if (c0 === c1) {
-        const length = right - left + 1;
-        if (length > max) {
-          max = length;
-        }
+  nums.forEach((n, i) => {
+    balance += n === 0 ? -1 : 1;
+    const sameBalanceAt = log.get(balance);
+    if (sameBalanceAt === undefined) {
+      log.set(balance, i);
+    } else {
+      const length = i - sameBalanceAt;
+      if (length > max) {
+        max = length;
       }
     }
-  }
+  });
   return max;
 }
 
