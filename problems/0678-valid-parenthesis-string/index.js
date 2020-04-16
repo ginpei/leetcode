@@ -1,6 +1,7 @@
 /**
  * 678. Valid Parenthesis String
  * @see https://leetcode.com/problems/valid-parenthesis-string/
+ * @see https://leetcode.com/problems/valid-parenthesis-string/discuss/582134/C%2B%2B-2-Pointer-Approach-Explained-O(1)-Space-O(N)-Time
  */
 
 /**
@@ -8,36 +9,16 @@
  * @return {boolean}
  */
 function checkValidString(s) {
-  /** @type {number[]} */
-  const opens = [];
-  /** @type {number[]} */
-  const wilds = [];
-
+  let numOpen = 0;
+  let numClose = 0;
   for (let i = 0; i < s.length; i++) {
-    const c = s[i];
-    if (c === '*') {
-      wilds.push(i);
-    } else if (c === '(') {
-      opens.push(i);
-    } else {
-      // eslint-disable-next-line no-lonely-if
-      if (opens.length > 0) {
-        opens.pop();
-      } else if (wilds.length > 0) {
-        wilds.pop();
-      } else {
-        return false;
-      }
-    }
-  }
+    const left = s[i];
+    numOpen += (left === '(' || left === '*') ? 1 : -1;
 
-  let openAt = -1;
-  while (opens.length > 0) {
-    /** @type {typeof opens[number]} */
-    openAt = (opens.pop());
+    const right = s[s.length - 1 - i];
+    numClose += (right === ')' || right === '*') ? 1 : -1;
 
-    const lastWildAt = wilds.pop();
-    if (lastWildAt === undefined || lastWildAt < openAt) {
+    if (numOpen < 0 || numClose < 0) {
       return false;
     }
   }
