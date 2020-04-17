@@ -1,5 +1,3 @@
-const { fillGridCells } = require('../lib/grid');
-
 /**
  * 200. Number of Islands
  *
@@ -11,16 +9,6 @@ const { fillGridCells } = require('../lib/grid');
  * @see https://leetcode.com/problems/number-of-islands/
  */
 
-/** @typedef {{
- *   water: '0';
- *   land: '1';
- *   boomed: 'x';
- * }} MapTypeDef
- */
-
-/** @typedef {ValueOf<MapTypeDef>} GridCell */
-
-// /** @type {MapTypeDef} */
 const MapType = {
   water: '0',
   land: '1',
@@ -28,24 +16,52 @@ const MapType = {
 };
 
 /**
- * @param {GridCell[][]} grid Gets destructed internally
+ * @param {string[][]} grid Gets destructed internally
  * @return {number}
  */
 function numIslands(grid) {
-  let count = 0;
+  let numLands = 0;
 
   for (let y = 0; y < grid.length; y++) {
     const line = grid[y];
     for (let x = 0; x < line.length; x++) {
       const cell = line[x];
       if (cell === MapType.land) {
-        fillGridCells(grid, y, x, MapType.boomed, MapType.land);
-        count += 1;
+        numLands += 1;
+        burn(grid, x, y);
       }
     }
   }
 
-  return count;
+  return numLands;
+}
+
+/**
+ * @param {string[][]} grid
+ * @param {number} x
+ * @param {number} y
+ */
+function burn(grid, x, y) {
+  // out of range
+  if (y < 0 || grid.length <= y || x < 0 || grid[y].length <= x) {
+    return;
+  }
+
+  // not burnable
+  const cell = grid[y][x];
+  if (cell !== MapType.land) {
+    return;
+  }
+
+  // burn target
+  // eslint-disable-next-line no-param-reassign
+  grid[y][x] = MapType.boomed;
+
+  // burn around
+  burn(grid, x + 1, y);
+  burn(grid, x, y + 1);
+  burn(grid, x - 1, y);
+  burn(grid, x, y - 1);
 }
 
 module.exports.numIslands = numIslands;
