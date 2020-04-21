@@ -1,7 +1,7 @@
 const lib = require('./binaryTree');
 
 describe('lib/binaryTree', () => {
-  describe('buildBinaryTree', () => {
+  describe('buildBinaryTree()', () => {
     describe('for basic binary tree', () => {
       const input = [1, 2, 3];
 
@@ -109,6 +109,112 @@ describe('lib/binaryTree', () => {
         expect(root.right.left.val).toBe(6);
         expect(root.right.right.val).toBe(7);
       });
+    });
+  });
+
+  describe('buildBinarySearchTree()', () => {
+    it('simple', () => {
+      const input = [2, 1, 3];
+      /** @type {TreeNode<number>} */
+      const expected = {
+        left: { left: null, right: null, val: 1 },
+        right: { left: null, right: null, val: 3 },
+        val: 2,
+      };
+      expect(lib.buildBinarySearchTree(input)).toEqual(expected);
+    });
+
+    it('appends to proper parent node', () => {
+      const input = [2, 1, 3, 4];
+      /** @type {TreeNode<number>} */
+      const expected = {
+        left: { left: null, right: null, val: 1 },
+        right: {
+          left: null,
+          right: { left: null, right: null, val: 4 },
+          val: 3,
+        },
+        val: 2,
+      };
+      expect(lib.buildBinarySearchTree(input)).toEqual(expected);
+    });
+  });
+
+  describe('bfsToTree()', () => {
+    it('creates full of 2 levels', () => {
+      const arr = [1, 2, 3];
+      /** @type {TreeNode<number>} */
+      const expected = {
+        left: {
+          left: null,
+          right: null,
+          val: 2,
+        },
+        right: {
+          left: null,
+          right: null,
+          val: 3,
+        },
+        val: 1,
+      };
+      expect(lib.bfsToTree(arr)).toEqual(expected);
+    });
+
+    it('appends null', () => {
+      const arr = [1, 2, 3, null, null, null, 7];
+      /** @type {TreeNode<number>} */
+      const expected = {
+        left: {
+          left: null,
+          right: null,
+          val: 2,
+        },
+        right: {
+          left: null,
+          right: { left: null, right: null, val: 7 },
+          val: 3,
+        },
+        val: 1,
+      };
+      expect(lib.bfsToTree(arr)).toEqual(expected);
+    });
+  });
+
+  describe('treeToBfs()', () => {
+    it('returns empty if null', () => {
+      expect(lib.treeToBfs(null)).toEqual([]);
+    });
+
+    it('simple 2 levels', () => {
+      expect(lib.treeToBfs({
+        left: { left: null, right: null, val: 2 },
+        right: { left: null, right: null, val: 3 },
+        val: 1,
+      })).toEqual([1, 2, 3]);
+    });
+
+    it.only('2 levels without left arm', () => {
+      expect(lib.treeToBfs({
+        left: null,
+        right: { left: null, right: null, val: 3 },
+        val: 1,
+      })).toEqual([1, null, 3]);
+    });
+
+    it('3 levels without any left arms', () => {
+      expect(lib.treeToBfs({
+        left: null,
+        right: {
+          left: null,
+          right: {
+            left: null,
+            right: null,
+            val: 7,
+          },
+          val: 3,
+        },
+        val: 1,
+      })).toEqual([1, null, 3, null, 7]);
     });
   });
 });
