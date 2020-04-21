@@ -30,8 +30,8 @@ class BinaryMatrix {
   }
 
   /**
-   * @param {number} x
-   * @param {number} y
+   * @param {number} x Top
+   * @param {number} y Left
    * @returns {number}
    */
   get(x, y) {
@@ -57,25 +57,20 @@ class BinaryMatrix {
 function leftMostColumnWithOne(binaryMatrix) {
   const [height, width] = binaryMatrix.dimensions();
 
-  let veryRight = width - 1;
+  let left = width - 1;
+  let top = 0;
   let found = false;
-  for (let top = 0; top < height; top++) {
-    let left = 0;
-    let right = veryRight;
-    while (left <= right) {
-      const center = left + Math.floor((right - left) / 2);
-      const v = binaryMatrix.get(top, center);
-      if (v === 0) {
-        left = center + 1;
-      } else {
-        found = true;
-        right = center - 1;
-      }
+  while (left >= 0 && top < height) {
+    const v = binaryMatrix.get(top, left);
+    if (v === 1) {
+      found = true;
+      left -= 1;
+    } else {
+      top += 1;
     }
-    veryRight = Math.min(veryRight, left);
   }
 
-  return found ? veryRight : -1;
+  return found ? left + 1 : -1;
 }
 
 module.exports.leftMostColumnWithOne = leftMostColumnWithOne;
