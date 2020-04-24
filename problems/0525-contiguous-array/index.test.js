@@ -29,14 +29,14 @@ describe('525. Contiguous Array', () => {
   });
 
   it('time limit exceeded', (done) => {
-    console.time('time limit exceeded case');
+    // console.time('time limit exceeded case');
     const fname = path.join(__dirname, 'time-limit-exceeded-case.json');
     readFile(fname, 'utf8', (err, json) => {
       expect(err).toBe(null);
       const data = JSON.parse(json);
       expect(findMaxLength(data)).toBe(17698);
       done();
-      console.timeEnd('time limit exceeded case');
+      // console.timeEnd('time limit exceeded case');
     });
   });
 });

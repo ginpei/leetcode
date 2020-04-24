@@ -24,7 +24,7 @@ describe('238. Product of Array Except Self', () => {
   });
 
   it('time limit exceeded', (done) => {
-    console.time('time limit exceeded case');
+    // console.time('time limit exceeded case');
     const caseFilePath = path.join(__dirname, 'time-limit-exceeded-case.json');
     const answerFilePath = path.join(__dirname, 'time-limit-exceeded-answer.json');
     readFile(caseFilePath, 'utf8', (err, json) => {
@@ -37,7 +37,7 @@ describe('238. Product of Array Except Self', () => {
 
         expect(productExceptSelf(caseData)).toEqual(answerData);
         done();
-        console.timeEnd('time limit exceeded case');
+        // console.timeEnd('time limit exceeded case');
       });
     });
   });
