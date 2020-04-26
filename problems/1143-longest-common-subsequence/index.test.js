@@ -29,7 +29,11 @@ describe('1143. Longest Common Subsequence', () => {
     expect(longestCommonSubsequence('abb', 'ab')).toBe(2);
   });
 
-  it('WA', () => {
+  it('WA 1', () => {
     expect(longestCommonSubsequence('bsbininm', 'jmjkbkjkv')).toBe(1);
+  });
+
+  it('WA 2', () => {
+    expect(longestCommonSubsequence('pmjghexybyrgzczy', 'hafcdqbgncrcbihkd')).toBe(4);
   });
 });
