@@ -1,6 +1,5 @@
-const path = require('path');
-const { readFile } = require('fs');
 const { BinaryMatrix, leftMostColumnWithOne } = require('./index');
+const { readJson } = require('../../../lib/readJson');
 
 describe('challenge/2020/21/Leftmost Column with at Least a One', () => {
   it('example 1', () => {
@@ -17,29 +16,7 @@ describe('challenge/2020/21/Leftmost Column with at Least a One', () => {
 
   it('get limit exceeded', async () => {
     const caseFileName = 'api-limit-exceeded-case.json';
-    const input = await readJson(caseFileName);
+    const input = await readJson(__dirname, caseFileName);
     expect(leftMostColumnWithOne(new BinaryMatrix(input))).toBe(39);
   });
-
-  /**
-   * @param {string} fileName
-   * @returns {Promise<any>}
-   */
-  function readJson(fileName) {
-    return new Promise((resolve, reject) => {
-      readFile(path.join(__dirname, fileName), 'utf8', (fileError, json) => {
-        if (fileError) {
-          reject(fileError);
-          return;
-        }
-
-        try {
-          const input = JSON.parse(json);
-          resolve(input);
-        } catch (jsonError) {
-          reject(jsonError);
-        }
-      });
-    });
-  }
 });
