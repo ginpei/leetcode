@@ -38,6 +38,7 @@ function solution(isBadVersion) {
     return n;
   };
 
+  /** @type {typeof isBadVersion} */
   function isFirstBadVersion(n) {
     return isBadVersion(n) && !isBadVersion(n - 1);
   }
