@@ -1,3 +1,7 @@
 ,*
 /node_modules/
 /npm-debug.log
+
+# AtCoder
+atcoder-contests/**/test/*.in
+atcoder-contests/**/test/*.out
