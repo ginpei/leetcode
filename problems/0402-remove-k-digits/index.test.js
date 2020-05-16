@@ -1,4 +1,4 @@
-const { all, removeKdigits } = require('./index');
+const { removeKdigits } = require('./index');
 
 describe('402. Remove K Digits', () => {
   it('example 1', () => {

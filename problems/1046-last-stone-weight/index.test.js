@@ -1,6 +1,4 @@
-const {
-  lastStoneWeight, createHeap, push, pop,
-} = require('./index');
+const { lastStoneWeight } = require('./index');
 
 describe('1046. Last Stone Weight', () => {
   it('example 1', () => {

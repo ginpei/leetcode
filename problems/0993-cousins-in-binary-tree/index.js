@@ -14,10 +14,8 @@ function isCousins(root, x, y) {
     return false;
   }
 
-  let count = 0;
   let parents = [root];
   while (parents.length > 0) {
-    if (++count > 100) { throw '!'; }
     /** @type {typeof parents} */
     const nodes = [];
     /** @type {typeof parents[]} */

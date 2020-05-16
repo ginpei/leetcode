@@ -1,12 +1,9 @@
-const { numIslands } = require('./');
-
-/** @typedef {import(".").GridCell} GridCell */
-/** @typedef {import(".").MapTypeDef} MapTypeDef */
+const { numIslands } = require('./index');
 
 describe('200. Number of Islands', () => {
   /**
    * @param {string} s
-   * @return {GridCell[][]}
+   * @return {string[][]}
    */
   function buildInput(s) {
     // @ts-ignore
