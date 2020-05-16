@@ -22,6 +22,9 @@ describe('diameterOfBinaryTree()', () => {
    */
   function exec(input) {
     const root = buildBinaryTree(input);
+    if (!root) {
+      throw new Error('Node must not be null');
+    }
     const result = diameterOfBinaryTree(root);
     return result;
   }

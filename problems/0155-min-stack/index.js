@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /* eslint-disable no-underscore-dangle */
 
 /**
@@ -5,6 +7,9 @@
  * @see https://leetcode.com/problems/min-stack/
  */
 
+/**
+ * @extends Array<number>
+ */
 class MinStack {
   _length = 0;
 
