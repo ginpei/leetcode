@@ -1,31 +1,27 @@
-const { createKey, groupAnagrams } = require('./index');
+const { createKey, groupAnagrams } = require("./index");
 
-describe('49. Group Anagrams', () => {
-  it('example', () => {
-    expect(sortSort(groupAnagrams(
-      ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'],
-    ))).toEqual([
-      ['ate', 'eat', 'tea'],
-      ['nat', 'tan'],
-      ['bat'],
-    ]);
+describe("49. Group Anagrams", () => {
+  it("example", () => {
+    expect(
+      sortSort(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+    ).toEqual([["ate", "eat", "tea"], ["nat", "tan"], ["bat"]]);
   });
 
-  it('empty', () => {
+  it("empty", () => {
     expect(sortSort(groupAnagrams([]))).toEqual([]);
   });
 
-  it('WA 1: same words', () => {
-    expect(sortSort(groupAnagrams(['', '']))).toEqual([['', '']]);
+  it("WA 1: same words", () => {
+    expect(sortSort(groupAnagrams(["", ""]))).toEqual([["", ""]]);
   });
 
-  describe('createKey()', () => {
-    it('returns same key for same anagrams', () => {
-      expect(createKey('ate')).toBe(createKey('tea'));
+  describe("createKey()", () => {
+    it("returns same key for same anagrams", () => {
+      expect(createKey("ate")).toBe(createKey("tea"));
     });
 
-    it('returns different keys for different anagrams', () => {
-      expect(createKey('teaa')).not.toBe(createKey('tea'));
+    it("returns different keys for different anagrams", () => {
+      expect(createKey("teaa")).not.toBe(createKey("tea"));
     });
   });
 

@@ -27,7 +27,7 @@ function minDistance(word1, word2) {
         distances[i][j] = Math.min(
           distances[i - 1][j] + 1, // delete
           distances[i][j - 1] + 1, // insert
-          distances[i - 1][j - 1] + 1, // replace
+          distances[i - 1][j - 1] + 1 // replace
         );
       }
     }

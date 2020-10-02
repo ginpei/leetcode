@@ -48,7 +48,7 @@ function uniquePathsWithObstacles(obstacleGrid) {
  * @param {number[][]} obstacleGrid
  */
 function seekLine(m, y, lastLine, obstacleGrid) {
-  const line = [(lastLine[0] === 0) || obstacleGrid[y][0] ? 0 : 1];
+  const line = [lastLine[0] === 0 || obstacleGrid[y][0] ? 0 : 1];
 
   for (let x = 1; x < m; x += 1) {
     if (obstacleGrid[y][x]) {

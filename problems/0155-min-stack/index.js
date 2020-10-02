@@ -80,7 +80,7 @@ class MinStack {
     }
 
     /** @type {number} */
-    const curMin = (this._min);
+    const curMin = this._min;
     return curMin;
   }
 }

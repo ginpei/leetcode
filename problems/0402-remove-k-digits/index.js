@@ -14,7 +14,7 @@ function removeKdigits(num, k) {
   /** @type {number[]} */
   const S = [];
 
-  const nDigits = num.split('').map(Number);
+  const nDigits = num.split("").map(Number);
   for (const x of nDigits) {
     // greedily remove up to k values greater-than x from the stack
     while (k && S.length && x < S[S.length - 1]) {
@@ -26,9 +26,10 @@ function removeKdigits(num, k) {
 
   const first = S.findIndex((x) => x > 0);
   const last = S.length - k;
-  const result = !S.length || first === -1 || first === last
-    ? '0'
-    : S.slice(first, last).join('').toString();
+  const result =
+    !S.length || first === -1 || first === last
+      ? "0"
+      : S.slice(first, last).join("").toString();
 
   return result;
 }

@@ -23,8 +23,10 @@ function hasPathSum(root, sum, stack = 0) {
     return curStack === sum;
   }
 
-  return hasPathSum(root.left, sum, curStack)
-    || hasPathSum(root.right, sum, curStack);
+  return (
+    hasPathSum(root.left, sum, curStack) ||
+    hasPathSum(root.right, sum, curStack)
+  );
 }
 
 module.exports.hasPathSum = hasPathSum;

@@ -1,8 +1,8 @@
-const lib = require('./grid');
+const lib = require("./grid");
 
-describe('grid', () => {
-  describe('floodFill()', () => {
-    describe('with basic grid', () => {
+describe("grid", () => {
+  describe("floodFill()", () => {
+    describe("with basic grid", () => {
       const grid = [
         [1, 1, 1],
         [1, 1, 0],
@@ -22,16 +22,16 @@ describe('grid', () => {
         result = lib.floodFill(grid, 1, 1, 2);
       });
 
-      it('fills connected areas', () => {
+      it("fills connected areas", () => {
         expect(result).toEqual(output);
       });
 
-      it('returns the given instance itself', () => {
+      it("returns the given instance itself", () => {
         expect(result).toBe(grid);
       });
     });
 
-    describe('returns the original if the specified color already', () => {
+    describe("returns the original if the specified color already", () => {
       const grid = [
         [1, 1, 1],
         [1, 1, 0],
@@ -41,8 +41,8 @@ describe('grid', () => {
     });
   });
 
-  describe('fillGridCells()', () => {
-    it('fills connected areas', () => {
+  describe("fillGridCells()", () => {
+    it("fills connected areas", () => {
       const grid = [
         [1, 1, 1],
         [1, 1, 0],
@@ -56,17 +56,13 @@ describe('grid', () => {
       expect(lib.fillGridCells(grid, 1, 1, 2, 1)).toEqual(output);
     });
 
-    it('fills 1x1 grid', () => {
-      const grid = [
-        [1],
-      ];
-      const output = [
-        [2],
-      ];
+    it("fills 1x1 grid", () => {
+      const grid = [[1]];
+      const output = [[2]];
       expect(lib.fillGridCells(grid, 0, 0, 2, 1)).toEqual(output);
     });
 
-    it('does nothing if the location is not the target', () => {
+    it("does nothing if the location is not the target", () => {
       const grid = [
         [1, 1, 1],
         [1, 1, 0],
@@ -80,7 +76,7 @@ describe('grid', () => {
       expect(lib.fillGridCells(grid, 1, 1, 2, 9)).toEqual(output);
     });
 
-    describe('throws if the specified color already', () => {
+    describe("throws if the specified color already", () => {
       const grid = [
         [1, 1, 1],
         [1, 1, 0],

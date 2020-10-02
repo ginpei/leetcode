@@ -13,10 +13,10 @@ function checkValidString(s) {
   let numClose = 0;
   for (let i = 0; i < s.length; i++) {
     const left = s[i];
-    numOpen += (left === '(' || left === '*') ? 1 : -1;
+    numOpen += left === "(" || left === "*" ? 1 : -1;
 
     const right = s[s.length - 1 - i];
-    numClose += (right === ')' || right === '*') ? 1 : -1;
+    numClose += right === ")" || right === "*" ? 1 : -1;
 
     if (numOpen < 0 || numClose < 0) {
       return false;

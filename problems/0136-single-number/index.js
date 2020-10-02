@@ -11,7 +11,7 @@
  * @return {number}
  */
 function singleNumber(nums) {
-  return nums.reduce((a, v) => a ^= v);
+  return nums.reduce((a, v) => (a ^= v));
 }
 
 module.exports.singleNumber = singleNumber;

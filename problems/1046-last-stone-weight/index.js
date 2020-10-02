@@ -13,9 +13,9 @@ function lastStoneWeight(stones) {
 
   while (heap.length > 2) {
     /** @type {number} */
-    const stone1 = (pop(heap));
+    const stone1 = pop(heap);
     /** @type {number} */
-    const stone2 = (pop(heap));
+    const stone2 = pop(heap);
 
     const remaining = stone1 - stone2;
     if (remaining > 0) {
@@ -76,7 +76,7 @@ function pop(heap) {
   const popped = heap[1];
   /** @type {number} */
   // eslint-disable-next-line no-param-reassign
-  heap[1] = (heap.pop());
+  heap[1] = heap.pop();
 
   let index = 1;
   while (index <= heap.length) {

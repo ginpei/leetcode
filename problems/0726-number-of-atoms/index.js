@@ -43,34 +43,34 @@ function tokenize(sFormula) {
   /** @type {Token[]} */
   const tokens = [];
 
-  const chars = [...sFormula, ''];
+  const chars = [...sFormula, ""];
   /** @type {TokenType | ''} */
-  let type = '';
-  let value = '';
+  let type = "";
+  let value = "";
   for (let p = 0; p < chars.length; p++) {
     const c = chars[p];
 
     /** @type {TokenType | ''} */
-    let thisType = '';
+    let thisType = "";
     if (/[A-Za-z]/.test(c)) {
-      thisType = 'atom';
+      thisType = "atom";
     } else if (/[0-9]/.test(c)) {
-      thisType = 'digit';
-    } else if (c === '(') {
-      thisType = 'paren-open';
-    } else if (c === ')') {
-      thisType = 'paren-close';
+      thisType = "digit";
+    } else if (c === "(") {
+      thisType = "paren-open";
+    } else if (c === ")") {
+      thisType = "paren-close";
     }
 
     if (
-      thisType === type
-      && !/[A-Z]/.test(c)
-      && thisType !== 'paren-open'
-      && thisType !== 'paren-close'
+      thisType === type &&
+      !/[A-Z]/.test(c) &&
+      thisType !== "paren-open" &&
+      thisType !== "paren-close"
     ) {
       value += c;
     } else {
-      if (type !== '') {
+      if (type !== "") {
         /** @type {Token} */
         const token = { type, value };
         tokens.push(token);
@@ -81,7 +81,7 @@ function tokenize(sFormula) {
     }
   }
 
-  tokens.push({ type: '', value: 'end of tokens' });
+  tokens.push({ type: "", value: "end of tokens" });
 
   return tokens;
 }
@@ -102,22 +102,22 @@ function parse(tokens) {
   tokens.forEach(({ type, value }) => {
     // console.log('# ', type, value);
 
-    if (type === 'atom') {
+    if (type === "atom") {
       if (element) {
         formula.push(element);
         element = null;
       }
 
       element = createElement({ value });
-    } else if (type === 'digit') {
+    } else if (type === "digit") {
       if (!element) {
-        throw new Error('!');
+        throw new Error("!");
       }
 
       element.amount = Number(value);
       formula.push(element);
       element = null;
-    } else if (type === 'paren-open') {
+    } else if (type === "paren-open") {
       if (element) {
         formula.push(element);
         element = null;
@@ -125,7 +125,7 @@ function parse(tokens) {
 
       formulaStack.push(formula);
       formula = [];
-    } else if (type === 'paren-close') {
+    } else if (type === "paren-close") {
       if (element) {
         formula.push(element);
         element = null;
@@ -135,10 +135,10 @@ function parse(tokens) {
 
       const last = formulaStack.pop();
       if (!last) {
-        throw new Error('!');
+        throw new Error("!");
       }
       formula = last;
-    } else if (type === '' && element) {
+    } else if (type === "" && element) {
       // end of tokens
       formula.push(element);
     }
@@ -154,7 +154,7 @@ function parse(tokens) {
 function createElement(props = {}) {
   return {
     amount: 1,
-    value: '',
+    value: "",
     ...props,
   };
 }
@@ -168,9 +168,8 @@ function calculate(formula) {
   const atomGroups = new Map();
 
   formula.forEach(({ amount, value }) => {
-    const subGroups = typeof value === 'string'
-      ? new Map([[value, 1]])
-      : calculate(value);
+    const subGroups =
+      typeof value === "string" ? new Map([[value, 1]]) : calculate(value);
 
     subGroups.forEach((a, v) => {
       const originalAmount = atomGroups.get(v) || 0;
@@ -189,7 +188,7 @@ function stringify(groups) {
   const s = [...groups]
     .sort(([v1], [v2]) => v1.localeCompare(v2))
     .map(([value, amount]) => (amount === 1 ? value : `${value}${amount}`))
-    .join('');
+    .join("");
   return s;
 }
 

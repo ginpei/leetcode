@@ -14,7 +14,8 @@ function maxUncrossedLines(A, B) {
     return 0;
   }
 
-  const dp = Array.from({ length: A.length + 1 }).fill(0)
+  const dp = Array.from({ length: A.length + 1 })
+    .fill(0)
     .map(() => Array.from({ length: B.length + 1 }).fill(0));
 
   for (let i = 1; i <= A.length; i++) {

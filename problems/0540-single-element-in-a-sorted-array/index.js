@@ -33,7 +33,7 @@ function singleNonDuplicate(nums) {
     }
   }
 
-  throw new Error('Not found');
+  throw new Error("Not found");
 }
 
 module.exports.singleNonDuplicate = singleNonDuplicate;

@@ -46,9 +46,7 @@ function possibleBipartition(N, dislikes) {
    * @param {Team} t2
    */
   function merge(p1, t1, p2, t2) {
-    const [from, to] = t1.size < t2.size
-      ? [t1, t2]
-      : [t2, t1];
+    const [from, to] = t1.size < t2.size ? [t1, t2] : [t2, t1];
     const modifier = t1.get(p1) === t2.get(p2);
 
     // eslint-disable-next-line no-restricted-syntax
@@ -83,7 +81,7 @@ function possibleBipartition(N, dislikes) {
       t2.set(p1, !t2.get(p2));
       belongings.set(p1, t2);
     } else {
-      throw new Error('!');
+      throw new Error("!");
     }
   }
 }

@@ -11,7 +11,7 @@
  * @param {string} stack
  * @return {string[]}
  */
-function binaryTreePaths(root, stack = '') {
+function binaryTreePaths(root, stack = "") {
   if (!root) {
     return [];
   }

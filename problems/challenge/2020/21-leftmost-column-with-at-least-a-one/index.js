@@ -36,7 +36,7 @@ class BinaryMatrix {
    */
   get(x, y) {
     if (this.getCount > 1000) {
-      throw new Error('You made too many calls to BinaryMatrix.get().');
+      throw new Error("You made too many calls to BinaryMatrix.get().");
     }
     this.getCount += 1;
     return this.values[x][y];

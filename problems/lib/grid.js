@@ -26,7 +26,7 @@ module.exports.floodFill = floodFill;
  */
 function fillGridCells(grid, y, x, value, target) {
   if (value === target) {
-    throw new Error('Value must not be the target');
+    throw new Error("Value must not be the target");
   }
 
   if (y < 0 || grid.length <= y || x < 0 || grid[0].length <= x) {

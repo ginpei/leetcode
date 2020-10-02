@@ -1,22 +1,18 @@
-const { groupAnagrams } = require('./index');
+const { groupAnagrams } = require("./index");
 
-describe('49. Group Anagrams', () => {
-  it('example', () => {
-    expect(sortSort(groupAnagrams(
-      ['eat', 'tea', 'tan', 'ate', 'nat', 'bat'],
-    ))).toEqual([
-      ['ate', 'eat', 'tea'],
-      ['nat', 'tan'],
-      ['bat'],
-    ]);
+describe("49. Group Anagrams", () => {
+  it("example", () => {
+    expect(
+      sortSort(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+    ).toEqual([["ate", "eat", "tea"], ["nat", "tan"], ["bat"]]);
   });
 
-  it('empty', () => {
+  it("empty", () => {
     expect(sortSort(groupAnagrams([]))).toEqual([]);
   });
 
-  it('WA 1: same words', () => {
-    expect(sortSort(groupAnagrams(['', '']))).toEqual([['', '']]);
+  it("WA 1: same words", () => {
+    expect(sortSort(groupAnagrams(["", ""]))).toEqual([["", ""]]);
   });
 
   /**

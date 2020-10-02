@@ -11,7 +11,7 @@
 function stringShift(s, shift) {
   const destination = shift.reduce(
     (acc, [direction, amount]) => acc + amount * (direction === 0 ? 1 : -1),
-    0,
+    0
   );
 
   const l = s.length;

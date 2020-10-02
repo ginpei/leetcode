@@ -1,16 +1,19 @@
-const { numIslands } = require('./index');
+const { numIslands } = require("./index");
 
-describe('200. Number of Islands', () => {
+describe("200. Number of Islands", () => {
   /**
    * @param {string} s
    * @return {string[][]}
    */
   function buildInput(s) {
     // @ts-ignore
-    return s.trim().split('\n').map((v) => v.trim().split(''));
+    return s
+      .trim()
+      .split("\n")
+      .map((v) => v.trim().split(""));
   }
 
-  it('example 1', () => {
+  it("example 1", () => {
     const input = buildInput(`
       11110
       11010
@@ -20,7 +23,7 @@ describe('200. Number of Islands', () => {
     expect(numIslands(input)).toBe(1);
   });
 
-  it('example 2', () => {
+  it("example 2", () => {
     const input = buildInput(`
       11000
       11000

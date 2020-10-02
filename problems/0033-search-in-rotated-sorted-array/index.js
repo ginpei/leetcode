@@ -22,8 +22,8 @@ function search(nums, target) {
     const vl = nums[left];
     const vr = nums[right];
     if (
-      (vc > vr && vl <= target && target < vc)
-      || (vc < vr && !(vc < target && target <= vr))
+      (vc > vr && vl <= target && target < vc) ||
+      (vc < vr && !(vc < target && target <= vr))
     ) {
       right = center - 1;
     } else {

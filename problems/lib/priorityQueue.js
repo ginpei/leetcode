@@ -2,9 +2,9 @@
 const compareMaxNumbers = (a, b) => {
   const typeA = typeof a;
   const typeB = typeof b;
-  if (typeA !== 'number' || typeB !== 'number') {
+  if (typeA !== "number" || typeB !== "number") {
     throw new Error(
-      `Number comparator accept numbers but received ${typeA} and ${typeB}`,
+      `Number comparator accept numbers but received ${typeA} and ${typeB}`
     );
   }
   return b - a;
@@ -24,7 +24,7 @@ const priorityQueue = {
    */
   createHeap(arr, comparator = compareMaxNumbers) {
     /** @type {any} */
-    const heap = ([undefined]);
+    const heap = [undefined];
     arr.forEach((v) => priorityQueue.push(heap, v, comparator));
     return heap;
   },
@@ -75,7 +75,7 @@ const priorityQueue = {
     const popped = heap[1];
     /** @type {T} */
     // eslint-disable-next-line no-param-reassign
-    heap[1] = (heap.pop());
+    heap[1] = heap.pop();
 
     let index = 1;
     while (index <= heap.length) {
@@ -93,9 +93,10 @@ const priorityQueue = {
       }
 
       // Note: no case of pair of empty left and existing right
-      const childIndex = right !== undefined && comparator(left, right) > 0
-        ? rightIndex
-        : leftIndex;
+      const childIndex =
+        right !== undefined && comparator(left, right) > 0
+          ? rightIndex
+          : leftIndex;
       const child = heap[childIndex];
 
       if (child > parent) {

@@ -26,9 +26,8 @@ function maxSubarraySumCircular(A) {
     sum += n;
   }
 
-  const result = sum === minTotal
-    ? maxTotal
-    : Math.max(sum - minTotal, maxTotal);
+  const result =
+    sum === minTotal ? maxTotal : Math.max(sum - minTotal, maxTotal);
   return result;
 }
 

@@ -41,7 +41,7 @@ function createTrieNode(value) {
  */
 class Trie {
   constructor() {
-    this.trie = createTrieNode('');
+    this.trie = createTrieNode("");
   }
 
   /**
@@ -53,7 +53,7 @@ class Trie {
     const strs = [...word];
 
     let node = this.trie;
-    let prefix = '';
+    let prefix = "";
     for (const c of strs) {
       prefix += c;
       if (!node.children.has(c)) {

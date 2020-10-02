@@ -5,7 +5,7 @@
  */
 function buildList(values) {
   if (values.length < 1) {
-    throw new Error('Values must have at least one element');
+    throw new Error("Values must have at least one element");
   }
 
   const root = createListNode(values[0]);
@@ -43,7 +43,7 @@ function listToArray(root) {
   const array = [];
   for (let node = root; node; node = node.next) {
     if (existing.has(node)) {
-      throw new Error('Loop list detected');
+      throw new Error("Loop list detected");
     }
     array.push(node.val);
     existing.add(node);

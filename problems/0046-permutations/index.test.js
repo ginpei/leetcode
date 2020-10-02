@@ -1,7 +1,7 @@
-const { permute } = require('./index');
+const { permute } = require("./index");
 
-describe('46. Permutations', () => {
-  it('example', () => {
+describe("46. Permutations", () => {
+  it("example", () => {
     const result = permute([1, 2, 3]);
     expect(result).toEqual([
       [1, 2, 3],
@@ -18,7 +18,7 @@ describe('46. Permutations', () => {
   //   expect(permute([])).toEqual([]);
   // });
 
-  it('only one item', () => {
+  it("only one item", () => {
     expect(permute([1])).toEqual([[1]]);
   });
 });

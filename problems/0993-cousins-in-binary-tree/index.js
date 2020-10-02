@@ -57,5 +57,4 @@ function isCousins(root, x, y) {
   return false;
 }
 
-
 module.exports.isCousins = isCousins;

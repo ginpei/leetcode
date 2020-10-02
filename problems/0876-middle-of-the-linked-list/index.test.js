@@ -1,29 +1,25 @@
-const { middleNode } = require('./index');
+const { middleNode } = require("./index");
 
 /**
  * @template T
  * @typedef {import('./index').ListNode<T>} ListNode
  */
 
-describe('876. Middle of the Linked List', () => {
-  it('example 1', () => {
-    expect(run([1, 2, 3, 4, 5]))
-      .toEqual([3, 4, 5]);
+describe("876. Middle of the Linked List", () => {
+  it("example 1", () => {
+    expect(run([1, 2, 3, 4, 5])).toEqual([3, 4, 5]);
   });
 
-  it('example 2', () => {
-    expect(run([1, 2, 3, 4, 5, 6]))
-      .toEqual([4, 5, 6]);
+  it("example 2", () => {
+    expect(run([1, 2, 3, 4, 5, 6])).toEqual([4, 5, 6]);
   });
 
-  it('single', () => {
-    expect(run([1]))
-      .toEqual([1]);
+  it("single", () => {
+    expect(run([1])).toEqual([1]);
   });
 
-  it('double', () => {
-    expect(run([1, 2]))
-      .toEqual([2]);
+  it("double", () => {
+    expect(run([1, 2])).toEqual([2]);
   });
 
   /**

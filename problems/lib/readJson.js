@@ -1,5 +1,5 @@
-const path = require('path');
-const { readFile } = require('fs');
+const path = require("path");
+const { readFile } = require("fs");
 
 /**
  * @param  {...string} paths
@@ -7,7 +7,7 @@ const { readFile } = require('fs');
  */
 function readJson(...paths) {
   return new Promise((resolve, reject) => {
-    readFile(path.join(...paths), 'utf8', (fileError, json) => {
+    readFile(path.join(...paths), "utf8", (fileError, json) => {
       if (fileError) {
         reject(fileError);
         return;
