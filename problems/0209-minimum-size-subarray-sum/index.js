@@ -17,7 +17,7 @@ function minSubArrayLen(s, nums) {
     sum += nums[iEnd];
 
     for (iStart; sum >= s && iStart < nums.length; iStart++) {
-      const length = (iEnd + 1) - iStart;
+      const length = iEnd + 1 - iStart;
       if (sum >= s && (min === 0 || length < min)) {
         min = length;
       }

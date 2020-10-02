@@ -18,7 +18,7 @@ function groupAnagrams(strs) {
     }
 
     /** @type {string[]} */
-    const arr = (anagrams.get(key));
+    const arr = anagrams.get(key);
     arr.push(str);
   });
 

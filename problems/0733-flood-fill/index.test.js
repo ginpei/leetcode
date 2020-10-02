@@ -1,7 +1,7 @@
-const { floodFill } = require('./index');
+const { floodFill } = require("./index");
 
-describe.only('733. Flood Fill', () => {
-  it('example 1', () => {
+describe.only("733. Flood Fill", () => {
+  it("example 1", () => {
     const image = [
       [1, 1, 1],
       [1, 1, 0],

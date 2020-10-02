@@ -1,6 +1,6 @@
-const { MinStack } = require('./index');
+const { MinStack } = require("./index");
 
-describe('155. Min Stack', () => {
+describe("155. Min Stack", () => {
   /** @type {MinStack} */
   let minStack;
 
@@ -8,7 +8,7 @@ describe('155. Min Stack', () => {
     minStack = new MinStack();
   });
 
-  it('example 1', () => {
+  it("example 1", () => {
     minStack.push(-2);
     minStack.push(0);
     minStack.push(-3);

@@ -9,7 +9,11 @@ function buildBinaryTree(input) {
   const root = createBinaryNode(input.shift());
 
   const nodes = [root];
-  for (let node = nodes.shift(); node || nodes.length > 0; node = nodes.shift()) {
+  for (
+    let node = nodes.shift();
+    node || nodes.length > 0;
+    node = nodes.shift()
+  ) {
     if (node) {
       node.left = createBinaryNode(input.shift());
       if (node.left) {
@@ -49,7 +53,7 @@ function buildBinarySearchTree(input) {
   for (let i = 1; i < input.length; i++) {
     const node = createBinaryNode(input[i]);
     if (!node) {
-      throw new Error('Empty node is not allowed');
+      throw new Error("Empty node is not allowed");
     }
     appendBinarySearchTreeNode(root, node);
   }
@@ -64,7 +68,7 @@ module.exports.buildBinarySearchTree = buildBinarySearchTree;
  * @param {TreeNode<T>} node
  */
 function appendBinarySearchTreeNode(root, node) {
-  const dir = node.val < root.val ? 'left' : 'right';
+  const dir = node.val < root.val ? "left" : "right";
   const next = root[dir];
   if (!next) {
     // eslint-disable-next-line no-param-reassign
@@ -87,7 +91,7 @@ function bfsToTree(arr) {
   for (let i = 1; i < arr.length; i += 2) {
     const parent = queue.shift();
     if (!parent) {
-      throw new Error('Inconsistent data: parent must be exist');
+      throw new Error("Inconsistent data: parent must be exist");
     }
 
     parent.left = createBinaryNode(arr[i]);

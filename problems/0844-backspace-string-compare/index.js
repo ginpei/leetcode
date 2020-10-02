@@ -27,7 +27,7 @@ function backspaceCompare(S, T) {
 
     let modified = false;
 
-    if (s === '#') {
+    if (s === "#") {
       sDeletes += 1;
       modified = true;
     } else if (sDeletes > 0) {
@@ -36,7 +36,7 @@ function backspaceCompare(S, T) {
       modified = true;
     }
 
-    if (t === '#') {
+    if (t === "#") {
       tDeletes += 1;
       modified = true;
     } else if (tDeletes > 0) {

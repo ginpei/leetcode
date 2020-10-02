@@ -14,8 +14,8 @@
  * @see https://leetcode.com/problems/valid-parentheses/
  */
 
-const openParens = '({[';
-const closeParens = ')}]';
+const openParens = "({[";
+const closeParens = ")}]";
 
 /**
  * @param {string} s
@@ -30,8 +30,11 @@ function isValid(s) {
     if (openParens.includes(c)) {
       stack.push(c);
     } else if (closeParens.includes(c)) {
-      const lastParen = stack.pop() || '';
-      if (!lastParen || openParens.indexOf(lastParen) !== closeParens.indexOf(c)) {
+      const lastParen = stack.pop() || "";
+      if (
+        !lastParen ||
+        openParens.indexOf(lastParen) !== closeParens.indexOf(c)
+      ) {
         return false;
       }
     }

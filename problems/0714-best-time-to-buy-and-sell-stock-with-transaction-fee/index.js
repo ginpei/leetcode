@@ -20,9 +20,9 @@ function maxProfit(prices, fee) {
     // console.log(`# [${i}:${cur}] --------`);
     if (cur > max) {
       max = cur;
-    } else if (cur < min || cur < (max - fee)) {
+    } else if (cur < min || cur < max - fee) {
       // console.log(`# [${i}:${cur}] dealt`, Math.max(0, (max - fee) - min));
-      profit += Math.max(0, (max - fee) - min);
+      profit += Math.max(0, max - fee - min);
       min = cur;
       max = cur;
     }

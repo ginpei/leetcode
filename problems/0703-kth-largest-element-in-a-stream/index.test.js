@@ -1,10 +1,10 @@
-const { KthLargest } = require('./index');
+const { KthLargest } = require("./index");
 
-describe('703. Kth Largest Element in a Stream', () => {
+describe("703. Kth Largest Element in a Stream", () => {
   /** @type {KthLargest} */
   let kthLargest;
 
-  it('example', () => {
+  it("example", () => {
     const arr = [4, 5, 8, 2];
     kthLargest = new KthLargest(3, arr);
 

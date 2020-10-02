@@ -12,14 +12,14 @@ function groupAnagrams(strs) {
   const anagrams = new Map();
 
   strs.forEach((str) => {
-    const sorted = [...str].sort().join('');
+    const sorted = [...str].sort().join("");
 
     if (!anagrams.has(sorted)) {
       anagrams.set(sorted, []);
     }
 
     /** @type {string[]} */
-    const arr = (anagrams.get(sorted));
+    const arr = anagrams.get(sorted);
     arr.push(str);
   });
 

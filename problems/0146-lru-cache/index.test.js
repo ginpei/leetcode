@@ -1,7 +1,7 @@
-const { LRUCache } = require('./index');
+const { LRUCache } = require("./index");
 
-describe('146. LRU Cache', () => {
-  it('example', () => {
+describe("146. LRU Cache", () => {
+  it("example", () => {
     const cache = new LRUCache(2 /* capacity */);
 
     cache.put(1, 1);
@@ -15,7 +15,7 @@ describe('146. LRU Cache', () => {
     expect(cache.get(4)).toBe(4); // returns 4
   });
 
-  it('WA', () => {
+  it("WA", () => {
     // ["LRUCache", "put", "get", "put", "get", "get"]
     // [[1],        [2,1], [2],   [3,2], [2],   [3]]
 

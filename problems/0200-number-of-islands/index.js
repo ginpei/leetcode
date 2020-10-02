@@ -10,9 +10,9 @@
  */
 
 const MapType = {
-  water: '0',
-  land: '1',
-  boomed: 'x',
+  water: "0",
+  land: "1",
+  boomed: "x",
 };
 
 /**

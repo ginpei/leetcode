@@ -26,7 +26,7 @@ function buildBinarySearchTree(input) {
   for (let i = 1; i < input.length; i++) {
     const node = createBinaryNode(input[i]);
     if (!node) {
-      throw new Error('Empty node is not allowed');
+      throw new Error("Empty node is not allowed");
     }
     appendBinarySearchTreeNode(root, node);
   }
@@ -40,7 +40,7 @@ function buildBinarySearchTree(input) {
  * @param {TreeNode<T>} node
  */
 function appendBinarySearchTreeNode(root, node) {
-  const dir = node.val < root.val ? 'left' : 'right';
+  const dir = node.val < root.val ? "left" : "right";
   const next = root[dir];
   if (!next) {
     // eslint-disable-next-line no-param-reassign

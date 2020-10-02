@@ -13,17 +13,21 @@ function imageSmoother(M) {
   M.forEach((line, row) => {
     result.push([]);
     line.forEach((cell, col) => {
-      result[row][col] = Math.floor(average(...[
-        M[row][col],
-        (M[row + 0] || [])[col + 1],
-        (M[row + 1] || [])[col + 1],
-        (M[row + 1] || [])[col + 0],
-        (M[row + 1] || [])[col - 1],
-        (M[row + 0] || [])[col - 1],
-        (M[row - 1] || [])[col - 1],
-        (M[row - 1] || [])[col + 0],
-        (M[row - 1] || [])[col + 1],
-      ].filter((v) => v !== undefined)));
+      result[row][col] = Math.floor(
+        average(
+          ...[
+            M[row][col],
+            (M[row + 0] || [])[col + 1],
+            (M[row + 1] || [])[col + 1],
+            (M[row + 1] || [])[col + 0],
+            (M[row + 1] || [])[col - 1],
+            (M[row + 0] || [])[col - 1],
+            (M[row - 1] || [])[col - 1],
+            (M[row - 1] || [])[col + 0],
+            (M[row - 1] || [])[col + 1],
+          ].filter((v) => v !== undefined)
+        )
+      );
     });
   });
   return result;
