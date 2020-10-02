@@ -34,4 +34,12 @@ module.exports = {
     ],
     "import/prefer-default-export": "off",
   },
+  overrides: [
+    {
+      files: ["**/*.js"],
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
+      },
+    }
+  ],
 };
