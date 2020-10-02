@@ -1,22 +1,37 @@
+// Need following packages beside typescript
+// eslint eslint-config-airbnb-base eslint-plugin-import @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier eslint-config-prettier eslint-plugin-prettier
+
 module.exports = {
-  "extends": [
+  extends: [
     "eslint-config-airbnb-base",
     "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
   ],
-  "env": {
-    "es6": true,
-    "jest": true,
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
   },
-  "parser": "@typescript-eslint/parser",
-	"rules": {
-    "@typescript-eslint/ban-ts-ignore": "off",
+  parser: "@typescript-eslint/parser",
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
+  plugins: ["prettier"],
+  rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-unused-vars": "off", // leave it to tsc
     "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/no-var-requires": "off",
     "arrow-parens": ["error", "always"],
     "class-methods-use-this": "off",
+    "import/extensions": ["error", "never"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { devDependencies: ["**/*.test.{ts,tsx}", "**/tests/*"] },
+    ],
     "import/prefer-default-export": "off",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-use-before-define": "off",
   },
 };
