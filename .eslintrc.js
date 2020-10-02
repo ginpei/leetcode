@@ -33,6 +33,7 @@ module.exports = {
       { devDependencies: ["**/*.test.{ts,tsx}", "**/tests/*"] },
     ],
     "import/prefer-default-export": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
   },
   overrides: [
     {
