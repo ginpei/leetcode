@@ -22,6 +22,7 @@ module.exports = {
   },
   plugins: ["prettier"],
   rules: {
+    "@typescript-eslint/ban-ts-ignore": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off", // leave it to tsc
     "@typescript-eslint/no-use-before-define": "off",
