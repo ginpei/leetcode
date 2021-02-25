@@ -22,7 +22,6 @@ module.exports = {
   },
   plugins: ["prettier"],
   rules: {
-    "@typescript-eslint/ban-ts-ignore": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off", // leave it to tsc
     "@typescript-eslint/no-use-before-define": "off",
@@ -34,14 +33,15 @@ module.exports = {
       { devDependencies: ["**/*.test.{ts,tsx}", "**/tests/*"] },
     ],
     "import/prefer-default-export": "off",
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
   },
   overrides: [
     {
       files: ["**/*.js"],
       rules: {
+        "@typescript-eslint/ban-ts-ignore": "warn",
         "@typescript-eslint/no-var-requires": "off",
       },
-    }
+    },
   ],
 };
