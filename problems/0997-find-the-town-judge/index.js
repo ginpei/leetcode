@@ -13,28 +13,20 @@ function findJudge(N, trust) {
     return 1;
   }
 
-  /** @type {Map<number, number>} */
-  const trustedCounts = new Map();
-  /** @type {Set<number>} */
-  const candidates = new Set();
-  /** @type {Set<number>} */
-  const trusters = new Set();
+  /** @type {number[]} */
+  const trustCounts = [];
 
-  trust.forEach(([from, to]) => {
-    trusters.add(from);
+  for (let i = 0; i < trust.length; i++) {
+    const [from, to] = trust[i];
+    const count = trustCounts[to] || 0;
+    trustCounts[to] = count + 1;
 
-    const c = (trustedCounts.get(to) || 0) + 1;
-    trustedCounts.set(to, c);
-    if (c === N - 1) {
-      candidates.add(to);
-    } else {
-      candidates.delete(to);
-    }
-  });
+    trustCounts[from] = -N;
+  }
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const id of candidates) {
-    if (!trusters.has(id)) {
+  for (let id = 1; id < trustCounts.length; id++) {
+    const count = trustCounts[id];
+    if (count === N - 1) {
       return id;
     }
   }

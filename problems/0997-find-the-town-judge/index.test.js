@@ -48,4 +48,13 @@ describe("997. Find the Town Judge", () => {
   it("Nobody else", () => {
     expect(findJudge(1, [])).toBe(1);
   });
+
+  it("Some trust each other", () => {
+    expect(
+      findJudge(2, [
+        [1, 2],
+        [2, 1],
+      ])
+    ).toBe(-1);
+  });
 });
