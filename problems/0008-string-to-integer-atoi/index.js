@@ -1,4 +1,3 @@
-/* eslint-disable no-continue */
 /**
  * 8. String to Integer (atoi)
  * @see https://leetcode.com/problems/0008-string-to-integer-atoi

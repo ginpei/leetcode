@@ -1,5 +1,3 @@
-/* eslint-disable no-continue */
-
 /**
  * 64. Minimum Path Sum
  * @see https://leetcode.com/problems/minimum-path-sum/

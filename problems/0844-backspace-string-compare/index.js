@@ -46,7 +46,6 @@ function backspaceCompare(S, T) {
     }
 
     if (modified) {
-      // eslint-disable-next-line no-continue
       continue;
     }
 
