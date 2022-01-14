@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-restricted-syntax */
 /**
  * 402. Remove K Digits
  * @see https://leetcode.com/problems/remove-k-digits/

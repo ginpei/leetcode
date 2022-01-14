@@ -74,7 +74,6 @@ function isCountMatched(c1, c2) {
     return false;
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const [c, count] of c1) {
     if (count !== c2.get(c)) {
       return false;

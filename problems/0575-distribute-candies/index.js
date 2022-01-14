@@ -12,7 +12,6 @@ function distributeCandies(candyType) {
   const chosen = {};
   let numChosen = 0;
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const type of candyType) {
     if (!chosen[type]) {
       chosen[type] = true;

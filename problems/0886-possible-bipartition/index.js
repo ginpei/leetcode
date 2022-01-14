@@ -49,7 +49,6 @@ function possibleBipartition(N, dislikes) {
     const [from, to] = t1.size < t2.size ? [t1, t2] : [t2, t1];
     const modifier = t1.get(p1) === t2.get(p2);
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const [p, b] of from) {
       to.set(p, b !== modifier);
     }

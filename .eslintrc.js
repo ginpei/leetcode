@@ -4,5 +4,10 @@ module.exports = {
   extends: "./node_modules/@ginpei/eslintrc/.eslintrc.js",
   rules: {
     "no-continue": "off",
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement",
+      "BinaryExpression[operator='in']",
+    ],
   },
 };

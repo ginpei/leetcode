@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 /**
  * 208. Implement Trie (Prefix Tree)
  * @see https://leetcode.com/problems/implement-trie-prefix-tree/

@@ -12,14 +12,12 @@ function carPooling(trips, capacity) {
   /** @type {number[]} */
   const countDiffs = [];
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const [num, from, to] of trips) {
     countDiffs[from] = (countDiffs[from] || 0) + num;
     countDiffs[to] = (countDiffs[to] || 0) - num;
   }
 
   let curCapacity = 0;
-  // eslint-disable-next-line no-restricted-syntax
   for (const diff of countDiffs) {
     curCapacity += diff || 0;
     if (curCapacity > capacity) {

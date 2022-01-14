@@ -16,7 +16,6 @@ function myAtoi(s) {
   let n = 0;
   let sign = 1;
   let started = false;
-  // eslint-disable-next-line no-restricted-syntax
   for (const c of s) {
     if (!started && emptyChars.includes(c)) {
       continue;
