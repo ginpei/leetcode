@@ -28,7 +28,7 @@ describe("525. Contiguous Array", () => {
     expect(findMaxLength([0, 0, 1, 0, 0, 0, 1, 1])).toBe(6);
   });
 
-  it("time limit exceeded", (done) => {
+  it.skip("time limit exceeded", (done) => {
     // console.time('time limit exceeded case');
     const fname = path.join(__dirname, "time-limit-exceeded-case.json");
     readFile(fname, "utf8", (err, json) => {

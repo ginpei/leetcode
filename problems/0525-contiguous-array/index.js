@@ -9,24 +9,31 @@
  * @return {number}
  */
 function findMaxLength(nums) {
-  /** @type {Map<number, number>} */
-  const log = new Map([[0, -1]]);
+  /**
+   * - Key: sum of the all numbers from 0 to i
+   * - Value: index of the first location of the sum
+   * @type {Map<number, number>}
+   */
+  const balances = new Map([[0, -1]]);
 
   let balance = 0;
-  let max = 0;
-  nums.forEach((n, i) => {
+  let maxStroke = 0;
+  for (let index = 0; index < nums.length; index++) {
+    const n = nums[index];
+
     balance += n === 0 ? -1 : 1;
-    const sameBalanceAt = log.get(balance);
-    if (sameBalanceAt === undefined) {
-      log.set(balance, i);
+
+    // find the flat position
+    const iPair = balances.get(balance);
+
+    if (iPair === undefined) {
+      balances.set(balance, index);
     } else {
-      const length = i - sameBalanceAt;
-      if (length > max) {
-        max = length;
-      }
+      maxStroke = Math.max(maxStroke, index - iPair);
     }
-  });
-  return max;
+  }
+
+  return maxStroke;
 }
 
 module.exports.findMaxLength = findMaxLength;
